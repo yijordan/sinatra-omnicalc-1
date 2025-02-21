@@ -25,6 +25,10 @@ get("/square_root/results") do
   erb(:root)
 end
 
+get("/random/new") do
+  erb(:random_form)
+end
+
 get("/random/results") do
   @min = params.fetch("user_min").to_f
   @max = params.fetch("user_max").to_f
