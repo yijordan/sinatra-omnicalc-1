@@ -6,6 +6,8 @@ get("/") do
 end
 
 get("/square/results") do
+  @input = params.fetch("number")
+  @square = @input.to_f ** 2
   erb(:square)
 end
 
