@@ -32,6 +32,10 @@ get("/random/results") do
   erb(:random)
 end
 
+get("/payment/new") do
+  erb(:payment_form)
+end
+
 get("/payment/results") do
   @apr = params.fetch("user_apr").to_f.to_fs(:percentage, { :precision =>4 })
     @r = params.fetch("user_apr").to_f / 1200
