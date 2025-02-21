@@ -5,15 +5,23 @@ get("/") do
   erb(:homepage)
 end
 
+get("/square/new") do
+  erb(:homepage)
+end
+
 get("/square/results") do
   @input = params.fetch("number")
   @square = @input.to_f ** 2
   erb(:square)
 end
 
+get("/square_root/new") do
+  erb(:root_form)
+end
+
 get("/square_root/results") do
   @input = params.fetch("number")
-  @root = @input.to_f ** 1/2
+  @root = @input.to_f ** 0.5
   erb(:root)
 end
 
