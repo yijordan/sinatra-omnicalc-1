@@ -17,10 +17,13 @@ get("/square_root/results") do
   erb(:root)
 end
 
-get("/payment/results") do
-  erb(:payment)
+get("/random/results") do
+  @min = params.fetch("user_min").to_f
+  @max = params.fetch("user_max").to_f
+  @random = rand(@min..@max)
+  erb(:random)
 end
 
-get("/random/results") do
-  erb(:random)
+get("/payment/results") do
+  erb(:payment)
 end
