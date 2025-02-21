@@ -12,7 +12,9 @@ get("/square/results") do
 end
 
 get("/square_root/results") do
-  erb(:square_root)
+  @input = params.fetch("number")
+  @root = @input.to_f ** 1/2
+  erb(:root)
 end
 
 get("/payment/results") do
