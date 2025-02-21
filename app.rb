@@ -25,13 +25,13 @@ get("/random/results") do
 end
 
 get("/payment/results") do
-  @apr = params.fetch("user_apr").to_fs(:percentage)
+  @apr = params.fetch("user_apr").to_f.to_fs(:percentage)
     @r_percentage = params.fetch("user_apr").to_f
     @r = @r_percentage/1200
   @years = params.fetch("user_years").to_i
     @n = @years * 12
-  @pv = params.fetch("user_pv_").to_fs(:currency)
-  @numerator = @r * @pv
+  @pv = params.fetch("user_pv").to_f.to_fs(:currency)
+  @numerator = @r * @pv.to_f
   @denominator = 1 - ((1 + @r) ** (-1 * @n))
   @payment = @numerator / @denominator
   erb(:payment)
